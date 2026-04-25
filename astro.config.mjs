@@ -37,6 +37,10 @@ const viteConfig = {
       '@theme-config': fileURLToPath(new URL('./theme.config.ts', import.meta.url)),
     },
   },
+  // FIX: Force Vite to bundle CommonJS dependencies that use "module" or "require"
+  ssr: {
+    noExternal: ['accessible-astro-components', 'accessible-astro-launcher', 'astro-icon'],
+  },
 }
 
 export default defineConfig({
@@ -45,11 +49,10 @@ export default defineConfig({
   output: 'server', 
   
   adapter: cloudflare({
-    // Forces the build to ignore local wrangler files that cause the "Chicken and Egg" crash
+    // Forces the build to ignore local wrangler files that cause the crash
     configPath: null, 
-    // Uses Cloudflare's workerd runtime for local dev/prerendering
-    prerenderEnvironment: 'workerd',
-    // Ensures the platform proxy is enabled for local development
+    // FIX: Using 'node' instead of 'workerd' bypasses the strict ESM module errors in dev
+    prerenderEnvironment: 'node', 
     platformProxy: {
       enabled: true,
     },
