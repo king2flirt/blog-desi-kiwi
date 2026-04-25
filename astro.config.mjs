@@ -11,11 +11,9 @@ import cloudflare from '@astrojs/cloudflare';
 
 // Vite configuration with path aliases and SCSS settings
 const viteConfig = {
-  // --- ADD THIS SECTION BELOW ---
   optimizeDeps: {
     exclude: ['accessible-astro-components', 'accessible-astro-launcher']
   },
-  // ------------------------------
   css: {
     preprocessorOptions: {
       scss: {
@@ -43,10 +41,14 @@ const viteConfig = {
   },
 }
 
+// https://astro.build/config
 export default defineConfig({
   compressHTML: true,
   site: 'https://desi.kiwi', 
-  output: 'static', 
+
+  // FIX 1: Change to 'server'. This prevents the Cloudflare "Prerender" 500 error.
+  output: 'server', 
+
   integrations: [compress(), icon(), mdx(), sitemap()],
   vite: enhanceConfigForWorkspace(viteConfig),
 
@@ -65,6 +67,6 @@ export default defineConfig({
     platformProxy: {
       enabled: true,
     },
-    mode: 'directory',
+    // FIX 2: Remove 'mode: directory'. The default mode is better for SSR.
   }),
 })
