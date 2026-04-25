@@ -45,10 +45,14 @@ export default defineConfig({
   output: 'server', 
   
   adapter: cloudflare({
-    // IMPORTANT: Prevents the build from crashing by ignoring wrangler.json validation during build
+    // Forces the build to ignore local wrangler files that cause the "Chicken and Egg" crash
     configPath: null, 
     // Uses Cloudflare's workerd runtime for local dev/prerendering
-    prerenderEnvironment: 'workerd', 
+    prerenderEnvironment: 'workerd',
+    // Ensures the platform proxy is enabled for local development
+    platformProxy: {
+      enabled: true,
+    },
   }),
   
   // HTML Compression
