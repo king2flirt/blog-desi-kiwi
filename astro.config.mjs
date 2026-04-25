@@ -45,8 +45,6 @@ const viteConfig = {
 export default defineConfig({
   compressHTML: true,
   site: 'https://desi.kiwi', 
-
-  // FIX: Change back to 'static'. This ensures all sub-pages and blog posts are generated as physical files.
   output: 'static', 
 
   integrations: [compress(), icon(), mdx(), sitemap()],
@@ -67,7 +65,7 @@ export default defineConfig({
     platformProxy: {
       enabled: true,
     },
-    // Using 'directory' mode for Cloudflare Pages static site structure
-    mode: 'directory',
+    // CRITICAL FIX: Astro 6 needs this to build legacy themes on Cloudflare
+    prerenderEnvironment: 'node',
   }),
 })
