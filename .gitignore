@@ -27,4 +27,4 @@ yarn-error.log*
 .astro
 
 # cursor
-.cursor
+.cursor.wrangler/
