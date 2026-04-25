@@ -46,8 +46,8 @@ export default defineConfig({
   compressHTML: true,
   site: 'https://desi.kiwi', 
 
-  // FIX 1: Change to 'server'. This prevents the Cloudflare "Prerender" 500 error.
-  output: 'server', 
+  // FIX: Change back to 'static'. This ensures all sub-pages and blog posts are generated as physical files.
+  output: 'static', 
 
   integrations: [compress(), icon(), mdx(), sitemap()],
   vite: enhanceConfigForWorkspace(viteConfig),
@@ -67,6 +67,7 @@ export default defineConfig({
     platformProxy: {
       enabled: true,
     },
-    // FIX 2: Remove 'mode: directory'. The default mode is better for SSR.
+    // Using 'directory' mode for Cloudflare Pages static site structure
+    mode: 'directory',
   }),
 })
