@@ -1,7 +1,6 @@
 {
   "name": "blog-desi-kiwi",
   "compatibility_date": "2026-04-25",
-  "compatibility_flags": ["nodejs_compat"],
   "main": "dist/server/_worker.js",
   "assets": {
     "directory": "dist/client"
