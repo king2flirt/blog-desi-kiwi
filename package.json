@@ -1,37 +1,27 @@
 {
-  "name": "",
+  "name": "blog-desi-kiwi",
   "description": "An Accessible Starter Theme for Astro including several accessibility features and tools to help you build faster.",
   "version": "5.1.0",
-  "author": "Incluud",
+  "author": "Umakant Chaudhari",
   "license": "MIT",
   "type": "module",
-  "homepage": "https://accessible-astro-starter.incluud.dev/",
+  "homepage": "https://hi.desi.kiwi",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro sync && astro build",
     "preview": "astro preview"
   },
   "keywords": [
     "astro",
-    "astro-component",
-    "astro-components",
     "accessible",
-    "accessibility",
-    "a11y",
-    "wcag",
-    "responsive",
-    "ui-library",
-    "ui-components",
     "blog",
-    "portfolio"
+    "portfolio",
+    "desi-kiwi"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/incluud/accessible-astro-starter.git"
-  },
-  "bugs": {
-    "url": "https://github.com/incluud/accessible-astro-starter/issues"
+    "url": "git+https://github.com/king2flirt/blog-desi-kiwi.git"
   },
   "devDependencies": {
     "@astrojs/mdx": "^5.0.4",
@@ -39,6 +29,7 @@
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^9.39.2",
     "@iconify-json/lucide": "^1.2.100",
+    "@sveltia/cms": "^0.48.0",
     "@types/sanitize-html": "^2.16.1",
     "@typescript-eslint/eslint-plugin": "^8.57.2",
     "@typescript-eslint/parser": "^8.57.2",
@@ -67,6 +58,6 @@
     "astro-seo": "^1.1.0"
   },
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=22.22.2"
   }
 }
