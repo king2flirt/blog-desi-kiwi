@@ -1,42 +1,49 @@
 {
-  "name": "blog-desi-kiwi",
+  "name": "accessible-astro-starter",
   "description": "An Accessible Starter Theme for Astro including several accessibility features and tools to help you build faster.",
-  "version": "6.0.0",
-  "author": "Umakant Chaudhari",
+  "version": "5.1.0",
+  "author": "Incluud",
   "license": "MIT",
   "type": "module",
-  "homepage": "https://hi.desi.kiwi",
+  "homepage": "https://accessible-astro-starter.incluud.dev/",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro sync && astro build",
+    "build": "astro build",
     "preview": "astro preview",
-    "deploy": "wrangler deploy --assets ./dist"
+    "generate-types": "wrangler types"
   },
   "keywords": [
     "astro",
+    "astro-component",
+    "astro-components",
     "accessible",
+    "accessibility",
+    "a11y",
+    "wcag",
+    "responsive",
+    "ui-library",
+    "ui-components",
     "blog",
-    "portfolio",
-    "desi-kiwi"
+    "portfolio"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/king2flirt/blog-desi-kiwi.git"
+    "url": "git+https://github.com/incluud/accessible-astro-starter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/incluud/accessible-astro-starter/issues"
   },
   "devDependencies": {
-    "@astrojs/cloudflare": "^13.2.0",
-    "@astrojs/mdx": "^5.0.4",
-    "@astrojs/partytown": "^2.1.7",
+    "@astrojs/mdx": "^5.0.3",
+    "@astrojs/partytown": "^2.1.6",
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^9.39.2",
     "@iconify-json/lucide": "^1.2.100",
-    "@rollup/rollup-linux-x64-gnu": "^4.60.2",
-    "@sveltia/cms": "^0.48.0",
     "@types/sanitize-html": "^2.16.1",
     "@typescript-eslint/eslint-plugin": "^8.57.2",
     "@typescript-eslint/parser": "^8.57.2",
-    "astro": "^6.1.9",
+    "astro": "^6.1.1",
     "astro-compress": "^2.4.0",
     "astro-eslint-parser": "^1.4.0",
     "astro-icon": "^1.1.5",
@@ -51,20 +58,21 @@
     "sanitize-html": "^2.17.2",
     "sass": "^1.98.0",
     "svgo": "^4.0.1",
-    "tailwindcss": "^4.2.2",
-    "wrangler": "^4.0.0"
+    "tailwindcss": "^4.2.2"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^13.2.1",
     "@astrojs/sitemap": "^3.7.2",
     "@tailwindcss/vite": "^4.2.2",
     "accessible-astro-components": "^5.2.0",
     "accessible-astro-launcher": "^2.0.0",
-    "astro-seo": "^1.1.0"
-  },
-  "overrides": {
-    "vite": "^7.0.0"
+    "astro-seo": "^1.1.0",
+    "wrangler": "^4.85.0"
   },
   "engines": {
-    "node": ">=22.22.2"
+    "node": ">=22.12.0"
+  },
+  "overrides": {
+    "vite": "^7"
   }
 }

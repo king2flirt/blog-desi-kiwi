@@ -1,6 +1,5 @@
 import { defineConfig, envField } from 'astro/config'
 import { fileURLToPath } from 'url'
-import cloudflare from '@astrojs/cloudflare'
 import compress from 'astro-compress'
 import icon from 'astro-icon'
 import mdx from '@astrojs/mdx'
@@ -8,14 +7,19 @@ import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
 import { enhanceConfigForWorkspace } from './scripts/workspace-config.js'
 
+import cloudflare from '@astrojs/cloudflare';
+
 // Vite configuration with path aliases and SCSS settings
 const viteConfig = {
+  // --- ADD THIS SECTION BELOW ---
+  optimizeDeps: {
+    exclude: ['accessible-astro-components', 'accessible-astro-launcher']
+  },
+  // ------------------------------
   css: {
     preprocessorOptions: {
       scss: {
         loadPaths: [fileURLToPath(new URL('./src/assets', import.meta.url))],
-        // Astro 6/Vite 7 uses the modern sass API by default
-        api: 'modern-compiler', 
         logger: {
           warn: () => {},
         },
@@ -37,45 +41,13 @@ const viteConfig = {
       '@theme-config': fileURLToPath(new URL('./theme.config.ts', import.meta.url)),
     },
   },
-  // FIX: Force Vite to bundle CommonJS dependencies that use "module" or "require"
-  ssr: {
-    noExternal: ['accessible-astro-components', 'accessible-astro-launcher', 'astro-icon'],
-  },
 }
 
 export default defineConfig({
-  // Top-level Astro 6 Settings
-  site: 'https://hi.desi.kiwi',
-  output: 'server', 
-  
-  adapter: cloudflare({
-    // Forces the build to ignore local wrangler files that cause the crash
-    configPath: null, 
-    // FIX: Using 'node' instead of 'workerd' bypasses the strict ESM module errors in dev
-    prerenderEnvironment: 'node', 
-    platformProxy: {
-      enabled: true,
-    },
-  }),
-  
-  // HTML Compression
   compressHTML: true,
-  
-  integrations: [
-    icon(), 
-    mdx(), 
-    sitemap(),
-    // Move compress to the end of the list for best results
-    compress({
-      CSS: true,
-      HTML: {
-        "removeAttributeQuotes": false,
-      },
-      Image: false, 
-    }),
-  ],
-
-  // Apply your custom workspace enhancements to the vite config
+  site: 'https://desi.kiwi', 
+  output: 'static', 
+  integrations: [compress(), icon(), mdx(), sitemap()],
   vite: enhanceConfigForWorkspace(viteConfig),
 
   env: {
@@ -88,4 +60,11 @@ export default defineConfig({
       }),
     },
   },
+
+  adapter: cloudflare({
+    platformProxy: {
+      enabled: true,
+    },
+    mode: 'directory',
+  }),
 })
