@@ -31,6 +31,7 @@
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^9.39.2",
     "@iconify-json/lucide": "^1.2.100",
+    "@rollup/rollup-linux-x64-gnu": "^4.60.2",
     "@sveltia/cms": "^0.48.0",
     "@types/sanitize-html": "^2.16.1",
     "@typescript-eslint/eslint-plugin": "^8.57.2",

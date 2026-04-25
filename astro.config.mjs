@@ -1,5 +1,6 @@
 import { defineConfig, envField } from 'astro/config'
 import { fileURLToPath } from 'url'
+import cloudflare from '@astrojs/cloudflare'
 import compress from 'astro-compress'
 import icon from 'astro-icon'
 import mdx from '@astrojs/mdx'
@@ -13,6 +14,8 @@ const viteConfig = {
     preprocessorOptions: {
       scss: {
         loadPaths: [fileURLToPath(new URL('./src/assets', import.meta.url))],
+        // Astro 6/Vite 7 uses the modern sass API by default
+        api: 'modern-compiler', 
         logger: {
           warn: () => {},
         },
@@ -36,12 +39,38 @@ const viteConfig = {
   },
 }
 
-// https://astro.build/config
 export default defineConfig({
+  // Top-level Astro 6 Settings
+  site: 'https://hi.desi.kiwi',
+  output: 'server', 
+  
+  adapter: cloudflare({
+    // IMPORTANT: Prevents the build from crashing by ignoring wrangler.json validation during build
+    configPath: null, 
+    // Uses Cloudflare's workerd runtime for local dev/prerendering
+    prerenderEnvironment: 'workerd', 
+  }),
+  
+  // HTML Compression
   compressHTML: true,
-  site: 'https://accessible-astro-starter.incluud.dev',
-  integrations: [compress(), icon(), mdx(), sitemap()],
+  
+  integrations: [
+    icon(), 
+    mdx(), 
+    sitemap(),
+    // Move compress to the end of the list for best results
+    compress({
+      CSS: true,
+      HTML: {
+        "removeAttributeQuotes": false,
+      },
+      Image: false, 
+    }),
+  ],
+
+  // Apply your custom workspace enhancements to the vite config
   vite: enhanceConfigForWorkspace(viteConfig),
+
   env: {
     schema: {
       BLOG_API_URL: envField.string({

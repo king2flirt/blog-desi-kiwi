@@ -1,6 +1,9 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "blog-desi-kiwi",
-  "pages_build_output_dir": "./dist",
-  "compatibility_date": "2024-11-01"
+  "compatibility_date": "2026-04-25",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "dist/server/_worker.js",
+  "assets": {
+    "directory": "dist/client"
+  }
 }
