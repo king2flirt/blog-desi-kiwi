@@ -1,171 +1,282 @@
 ---
 import DefaultLayout from '@layouts/DefaultLayout.astro'
-import Hero from '@components/Hero.astro'
-import Feature from '@components/Feature.astro'
-import Counter from '@components/Counter.astro'
-import ContentMedia from '@components/ContentMedia.astro'
-import FeaturedProjects from '@components/FeaturedProjects.astro'
-import FeaturedPosts from '@components/FeaturedPosts.astro'
-import { Accordion, AccordionItem, Avatar, AvatarGroup, Heading, Link } from 'accessible-astro-components'
+import { Heading } from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
 ---
 
-<DefaultLayout title="Accessible Astro Starter - Build Faster, More Inclusive Websites" useTitleTemplate={false}>
-  <Hero />
-  <section class="my-64">
-    <div class="container">
-      <Heading level="h2" class="mb-8">Features</Heading>
-      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-        <Feature icon="lucide:accessibility" title="Accessible by default">
-          Keyboard navigation, focus indicators, ARIA labels, semantic HTML, and more. This theme is designed to be
-          inclusive.
-        </Feature>
-        <Feature icon="lucide:puzzle" title="A11Y components">
-          35+ components and counting, all tried and tested for the most optimal accessible experience for your
-          visitors.
-        </Feature>
-        <Feature icon="lucide:moon" title="Dark mode">
-          Fully integrated Dark mode gives your users the choice for their favorite viewing mode.
-        </Feature>
-        <Feature icon="lucide:paintbrush" title="Tailwind 4.0">
-          Use the power of Tailwind to greatly improve your productivity and enhance your developer workflow.
-        </Feature>
-        <Feature icon="lucide:sparkles" title="Prettier">
-          Less worry about formatting your code, let the Astro Prettier integration do the heavy lifting.
-        </Feature>
-        <Feature icon="lucide:code" title="ESLint">
-          Lint your code with strict a11y settings to ensure you stay on track with the WCAG standards.
-        </Feature>
-        <Feature icon="lucide:bookmark" title="Blog & portfolio">
-          This theme comes with a fully integrated blog and portfolio, dynamic pages and SEO optimization.
-        </Feature>
-        <Feature icon="lucide:file-text" title="Markdown & MDX">
-          Easily use .md and .mdx pages to build your websites or use it with Netlify CMS.
-        </Feature>
-        <Feature icon="lucide:blocks" title="Design system">
-          The theme offers some very handy utilities to help you build your website faster.
-        </Feature>
-      </div>
-    </div>
-  </section>
-  <ContentMedia imgSrc="/accessible-components.webp">
-    <Heading level="h2">Accessible components</Heading>
-    <p class="text-2xl">
-      This theme provides plenty of tried and tested Accessible Astro Components. Some are native to this theme and a
-      lot of others are integrated using a <Link
-        isExternal
-        href="https://github.com/incluud/accessible-astro-components">separate package</Link
-      >. They'll get you up and running in building an accessible solution for your visitors.
-    </p>
-  </ContentMedia>
-  <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}>
-    <Heading level="h2">WCAG 2.2 AA compliant</Heading>
-    <p class="text-2xl">
-      Using semantic HTML, landmarks, skip links, screen reader friendly content, aria-labels, keyboard accessible
-      navigation and components, clear outlines and tab indicators and the right color contrast, you're more certain of
-      reaching WCAG AA compliance.
-    </p>
-  </ContentMedia>
-  <FeaturedProjects />
-  <FeaturedPosts />
-  <section class="my-64">
-    <div class="container grid grid-cols-1 gap-12 md:grid-cols-2">
-      <div class="flex flex-col items-start gap-4">
-        <Heading level="h2">FAQ</Heading>
-        <p class="text-2xl">
-          This section demonstrates how to effectively use the Accordion component to organize and display frequently
-          asked questions in an accessible and user-friendly way.
-        </p>
-        <Link href="/faq" isButton type="primary" animateOnHover animationType="boop">
-          <Icon aria-hidden="true" name="lucide:headset" size=" 1.5rem" />
-          Contact support team
-        </Link>
-      </div>
-      <div class="space-content">
-        <Accordion>
-          <AccordionItem name="exclusive" title="What is WCAG and why is it important?" open>
-            <p>
-              WCAG (Web Content Accessibility Guidelines) is a set of internationally recognized standards for web
-              accessibility. Following WCAG ensures your website is usable by people with various disabilities,
-              including visual, auditory, physical, and cognitive impairments. It's important not just for
-              accessibility, but also for legal compliance, SEO, and reaching a wider audience.
-            </p>
-          </AccordionItem>
-          <AccordionItem name="exclusive" title="What's the difference between ARIA labels and alt text?">
-            <p>
-              Alt text is specifically for describing images to screen reader users, while ARIA labels (aria-label,
-              aria-labelledby) can describe any element on a page. Alt text is HTML's native way to provide alternative
-              text for images, while ARIA labels are part of the ARIA specification that helps make dynamic content and
-              advanced UI controls more accessible.
-            </p>
-          </AccordionItem>
-          <AccordionItem name="exclusive" title="Why is keyboard navigation important?">
-            <p>
-              Keyboard navigation is essential for users who can't use a mouse, including people with motor
-              disabilities, visual impairments, or those who simply prefer keyboard controls. A website should be fully
-              operable using only a keyboard, with visible focus indicators and logical tab order. This includes being
-              able to access all interactive elements and navigate through content efficiently.
-            </p>
-          </AccordionItem>
-          <AccordionItem name="exclusive" title="What is a sufficient color contrast ratio?">
-            <p>
-              According to WCAG 2.2 AA standards, text should have a minimum contrast ratio of 4.5:1 against its
-              background for regular text, and 3:1 for large text (18pt or 14pt bold). For non-text elements like icons
-              or buttons, a minimum ratio of 3:1 is required. This ensures content is readable for users with visual
-              impairments or color blindness.
-            </p>
-          </AccordionItem>
-          <AccordionItem name="exclusive" title="How do I make custom components accessible?">
-            <p>
-              To make custom components accessible, focus on these key aspects: use semantic HTML where possible,
-              implement proper keyboard support, add appropriate ARIA attributes, manage focus when needed, and ensure
-              adequate color contrast. Always test with screen readers and keyboard navigation. Consider using
-              established design patterns from the <Link href="https://www.w3.org/WAI/ARIA/apg/patterns/"
-                >ARIA Authoring Practices Guide</Link
-              >.
-            </p>
-          </AccordionItem>
-        </Accordion>
-      </div>
-    </div>
-  </section>
-  <section class="my-64">
-    <div class="space-content container">
-      <Heading level="h2">Our community</Heading>
-      <p class="text-2xl">
-        We're a community of developers who are passionate about making the web more accessible. We're always looking
-        for new ways to improve the accessibility of the web.
+<DefaultLayout title="The Archive - Sustainable, Mindful, Open" useTitleTemplate={false}>
+  
+  <section class="container mx-auto px-4 py-12 lg:py-24 flex flex-col lg:flex-row items-center gap-12">
+    <div class="lg:w-1/2">
+      <Heading level="h1" class="text-5xl lg:text-6xl font-bold leading-tight mb-6 text-neutral-900 dark:text-neutral-100">
+        Ideas, skills and perspectives for a better life — on <span class="text-green-700 dark:text-green-500 italic">our</span> terms.
+      </Heading>
+      <p class="text-xl mb-8 text-neutral-700 dark:text-neutral-300">
+        A personal blog exploring sustainable living, open-source tech, community, and the mind — from Aotearoa and beyond.
       </p>
-      <AvatarGroup display="grid" gridItemsSize="300px" gridGap="2rem">
-        <Avatar initials="RJ" title="Robert Johnson" subtitle="Manager" />
-        <Avatar initials="MT" title="Maria Torres" subtitle="Developer" />
-        <Avatar initials="AK" title="Alex Kim" subtitle="Designer" />
-        <Avatar initials="SL" title="Sarah Lee" subtitle="Content Strategist" />
-        <Avatar initials="JP" title="James Peterson" subtitle="QA Engineer" />
-        <Avatar initials="LW" title="Lisa Wong" subtitle="Product Owner" />
-        <Avatar initials="DM" title="David Martinez" subtitle="UX Researcher" />
-        <Avatar initials="EB" title="Emma Brown" subtitle="Accessibility Specialist" />
-        <Avatar initials="TC" title="Thomas Chen" subtitle="Frontend Developer" />
-      </AvatarGroup>
+      <div class="flex flex-wrap gap-4">
+        <a href="/start-here" class="px-6 py-3 bg-green-700 text-white rounded-md font-medium hover:bg-green-800 transition shadow-sm focus:ring-2 focus:ring-offset-2 focus:ring-green-700 dark:focus:ring-offset-neutral-900">
+          Start Here &rarr;
+        </a>
+        <a href="/topics" class="px-6 py-3 border border-neutral-300 dark:border-neutral-600 rounded-md font-medium hover:bg-neutral-50 dark:hover:bg-neutral-800 transition focus:ring-2 focus:ring-offset-2 focus:ring-neutral-500 dark:focus:ring-offset-neutral-900 text-neutral-900 dark:text-neutral-100">
+          Explore All Topics
+        </a>
+      </div>
+    </div>
+    <div class="lg:w-1/2 w-full">
+      <img 
+        src="https://images.unsplash.com/photo-1469521669194-babbdf9071b2?q=80&w=1600&auto=format&fit=crop" 
+        alt="Coastal landscape in Aotearoa during golden hour" 
+        class="rounded-xl shadow-lg w-full object-cover aspect-video"
+      />
     </div>
   </section>
-  <section class="mt-64 mb-32">
-    <div class="container">
-      <Heading level="h2" class="mb-16">Impact in numbers</Heading>
-      <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
-        <Counter count="1.100+" title="Stars" sub="On GitHub" />
-        <Counter count="35+" title="Accessible" sub="Components" />
-        <Counter count="500+" title="Commits" sub="Merged" />
-        <Counter count="48+" title="Months" sub="Since launch" />
+
+  <section class="container mx-auto px-4 py-8 border-y border-neutral-200 dark:border-neutral-800 mb-16" aria-label="Key Site Features">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center lg:text-left">
+      <div class="flex flex-col lg:flex-row items-center gap-3">
+        <div class="p-3 bg-neutral-100 dark:bg-neutral-800 rounded-full text-green-700 dark:text-green-500" aria-hidden="true">
+          <Icon name="lucide:leaf" size="1.5rem" />
+        </div>
+        <div>
+          <Heading level="h2" class="font-bold text-sm m-0 text-neutral-900 dark:text-neutral-100">Independent & Open</Heading>
+          <p class="text-xs text-neutral-600 dark:text-neutral-400">No corporate strings.</p>
+        </div>
+      </div>
+      <div class="flex flex-col lg:flex-row items-center gap-3">
+        <div class="p-3 bg-neutral-100 dark:bg-neutral-800 rounded-full text-blue-700 dark:text-blue-500" aria-hidden="true">
+          <Icon name="lucide:layout-grid" size="1.5rem" />
+        </div>
+        <div>
+          <Heading level="h2" class="font-bold text-sm m-0 text-neutral-900 dark:text-neutral-100">Wide Range of Topics</Heading>
+          <p class="text-xs text-neutral-600 dark:text-neutral-400">Gardening to homelabs.</p>
+        </div>
+      </div>
+      <div class="flex flex-col lg:flex-row items-center gap-3">
+        <div class="p-3 bg-neutral-100 dark:bg-neutral-800 rounded-full text-purple-700 dark:text-purple-500" aria-hidden="true">
+          <Icon name="lucide:user" size="1.5rem" />
+        </div>
+        <div>
+          <Heading level="h2" class="font-bold text-sm m-0 text-neutral-900 dark:text-neutral-100">Practical & Real</Heading>
+          <p class="text-xs text-neutral-600 dark:text-neutral-400">Actionable guides & notes.</p>
+        </div>
+      </div>
+      <div class="flex flex-col lg:flex-row items-center gap-3">
+        <div class="p-3 bg-neutral-100 dark:bg-neutral-800 rounded-full text-orange-700 dark:text-orange-500" aria-hidden="true">
+          <Icon name="lucide:map-pin" size="1.5rem" />
+        </div>
+        <div>
+          <Heading level="h2" class="font-bold text-sm m-0 text-neutral-900 dark:text-neutral-100">Rooted in NZ</Heading>
+          <p class="text-xs text-neutral-600 dark:text-neutral-400">Based in Aotearoa.</p>
+        </div>
       </div>
     </div>
   </section>
-</DefaultLayout>
 
-<style>
-  .avatar {
-    border: 1px solid var(--border-color-subtle);
-    border-radius: var(--radius-md);
-    padding: var(--space-s);
-  }
-</style>
+  <div class="container mx-auto px-4 space-y-12">
+    
+    <section class="bg-green-50/50 dark:bg-green-900/10 rounded-2xl p-6 lg:p-8 flex flex-col lg:flex-row gap-8 border border-green-100 dark:border-green-900/30">
+      <div class="lg:w-1/4">
+        <div class="w-12 h-12 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 rounded-full flex items-center justify-center mb-4" aria-hidden="true">
+          <Icon name="lucide:trees" size="1.5rem" />
+        </div>
+        <p class="text-xs font-bold uppercase tracking-wider text-neutral-500 mb-1" aria-hidden="true">Pillar 1</p>
+        <Heading level="h2" class="text-3xl font-bold mb-3 text-neutral-900 dark:text-neutral-100">The Earth</Heading>
+        <p class="text-neutral-600 dark:text-neutral-400 mb-6 text-sm">Sustainable, mindful living in Aotearoa.</p>
+        <a href="/earth" class="inline-block px-4 py-2 bg-green-700 text-white rounded-md text-sm font-medium hover:bg-green-800 focus:ring-2 focus:ring-offset-2 focus:ring-green-700 dark:focus:ring-offset-neutral-900 transition">Explore all topics &rarr;</a>
+      </div>
+
+      <div class="lg:w-3/4 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <Heading level="h3" class="text-lg font-bold mb-2 flex items-center gap-2 text-neutral-900 dark:text-neutral-100">Gardening</Heading>
+          <p class="text-xs text-neutral-600 dark:text-neutral-400 mb-4 h-8">Grow food, nurture the soil, and work with the seasons.</p>
+          <Heading level="h4" class="text-xs font-bold uppercase text-neutral-500 mb-3">Latest posts</Heading>
+          <ul class="space-y-2 mb-4">
+            <li><a href="#" class="text-sm text-neutral-800 dark:text-neutral-300 hover:text-green-700 dark:hover:text-green-400 transition underline-offset-4 hover:underline">What to Plant in Autumn in Aotearoa</a></li>
+            <li><a href="#" class="text-sm text-neutral-800 dark:text-neutral-300 hover:text-green-700 dark:hover:text-green-400 transition underline-offset-4 hover:underline">Winter Gardening Checklist</a></li>
+          </ul>
+          <a href="/gardening" class="text-sm font-medium text-green-700 dark:text-green-400 hover:underline">View all Gardening &rarr;</a>
+        </div>
+        <div>
+          <Heading level="h3" class="text-lg font-bold mb-2 flex items-center gap-2 text-neutral-900 dark:text-neutral-100">Life</Heading>
+          <p class="text-xs text-neutral-600 dark:text-neutral-400 mb-4 h-8">Mindful living, community, and personal growth.</p>
+          <Heading level="h4" class="text-xs font-bold uppercase text-neutral-500 mb-3">Latest posts</Heading>
+          <ul class="space-y-2 mb-4">
+            <li><a href="#" class="text-sm text-neutral-800 dark:text-neutral-300 hover:text-green-700 dark:hover:text-green-400 transition underline-offset-4 hover:underline">Budgeting for Financial Freedom</a></li>
+            <li><a href="#" class="text-sm text-neutral-800 dark:text-neutral-300 hover:text-green-700 dark:hover:text-green-400 transition underline-offset-4 hover:underline">Yoga for a Clear Mind</a></li>
+          </ul>
+          <a href="/life" class="text-sm font-medium text-green-700 dark:text-green-400 hover:underline">View all Life &rarr;</a>
+        </div>
+        <div>
+          <Heading level="h3" class="text-lg font-bold mb-2 flex items-center gap-2 text-neutral-900 dark:text-neutral-100">Work</Heading>
+          <p class="text-xs text-neutral-600 dark:text-neutral-400 mb-4 h-8">Work, study, and build a life that supports you.</p>
+          <Heading level="h4" class="text-xs font-bold uppercase text-neutral-500 mb-3">Latest posts</Heading>
+          <ul class="space-y-2 mb-4">
+            <li><a href="#" class="text-sm text-neutral-800 dark:text-neutral-300 hover:text-green-700 dark:hover:text-green-400 transition underline-offset-4 hover:underline">Community Support Work in NZ</a></li>
+            <li><a href="#" class="text-sm text-neutral-800 dark:text-neutral-300 hover:text-green-700 dark:hover:text-green-400 transition underline-offset-4 hover:underline">Building Skills That Matter</a></li>
+          </ul>
+          <a href="/work" class="text-sm font-medium text-green-700 dark:text-green-400 hover:underline">View all Work &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-blue-50/50 dark:bg-blue-900/10 rounded-2xl p-6 lg:p-8 flex flex-col lg:flex-row gap-8 border border-blue-100 dark:border-blue-900/30">
+      <div class="lg:w-1/4">
+        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400 rounded-full flex items-center justify-center mb-4" aria-hidden="true">
+          <Icon name="lucide:monitor" size="1.5rem" />
+        </div>
+        <p class="text-xs font-bold uppercase tracking-wider text-neutral-500 mb-1" aria-hidden="true">Pillar 2</p>
+        <Heading level="h2" class="text-3xl font-bold mb-3 text-neutral-900 dark:text-neutral-100">The Wire</Heading>
+        <p class="text-neutral-600 dark:text-neutral-400 mb-6 text-sm">Digital sovereignty and "building it yourself."</p>
+        <a href="/wire" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-md text-sm font-medium hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 dark:focus:ring-offset-neutral-900 transition">Explore all topics &rarr;</a>
+      </div>
+
+      <div class="lg:w-3/4 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <Heading level="h3" class="text-lg font-bold mb-2 flex items-center gap-2 text-neutral-900 dark:text-neutral-100">Digital Sovereignty</Heading>
+          <p class="text-xs text-neutral-600 dark:text-neutral-400 mb-4 h-8">Own your data, your devices, your freedom.</p>
+          <Heading level="h4" class="text-xs font-bold uppercase text-neutral-500 mb-3">Latest posts</Heading>
+          <ul class="space-y-2 mb-4">
+            <li><a href="#" class="text-sm text-neutral-800 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-blue-400 transition underline-offset-4 hover:underline">Proxmox Setup Guide</a></li>
+            <li><a href="#" class="text-sm text-neutral-800 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-blue-400 transition underline-offset-4 hover:underline">Linux Distro Reviews</a></li>
+          </ul>
+          <a href="/digital-sovereignty" class="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">View all Digital Sovereignty &rarr;</a>
+        </div>
+        <div>
+          <Heading level="h3" class="text-lg font-bold mb-2 flex items-center gap-2 text-neutral-900 dark:text-neutral-100">DIY Tech / Projects</Heading>
+          <p class="text-xs text-neutral-600 dark:text-neutral-400 mb-4 h-8">Hands-on projects, homelab, and tech experiments.</p>
+          <Heading level="h4" class="text-xs font-bold uppercase text-neutral-500 mb-3">Latest posts</Heading>
+          <ul class="space-y-2 mb-4">
+            <li><a href="#" class="text-sm text-neutral-800 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-blue-400 transition underline-offset-4 hover:underline">Setting up a HomeLab on a Budget</a></li>
+            <li><a href="#" class="text-sm text-neutral-800 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-blue-400 transition underline-offset-4 hover:underline">DIY NAS with Open Source</a></li>
+          </ul>
+          <a href="/diy-tech" class="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">View all DIY Tech / Projects &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-purple-50/50 dark:bg-purple-900/10 rounded-2xl p-6 lg:p-8 flex flex-col lg:flex-row gap-8 border border-purple-100 dark:border-purple-900/30">
+      <div class="lg:w-1/4">
+        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-400 rounded-full flex items-center justify-center mb-4" aria-hidden="true">
+          <Icon name="lucide:brain" size="1.5rem" />
+        </div>
+        <p class="text-xs font-bold uppercase tracking-wider text-neutral-500 mb-1" aria-hidden="true">Pillar 3</p>
+        <Heading level="h2" class="text-3xl font-bold mb-3 text-neutral-900 dark:text-neutral-100">Mind & Machine</Heading>
+        <p class="text-neutral-600 dark:text-neutral-400 mb-6 text-sm">Understanding how the world (and we) work.</p>
+        <a href="/mind-machine" class="inline-block px-4 py-2 bg-purple-600 text-white rounded-md text-sm font-medium hover:bg-purple-700 focus:ring-2 focus:ring-offset-2 focus:ring-purple-600 dark:focus:ring-offset-neutral-900 transition">Explore all topics &rarr;</a>
+      </div>
+
+      <div class="lg:w-3/4 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <Heading level="h3" class="text-lg font-bold mb-2 text-neutral-900 dark:text-neutral-100">Thoughts / Opinions</Heading>
+          <Heading level="h4" class="text-xs font-bold uppercase text-neutral-500 mb-3 mt-4">Latest posts</Heading>
+          <ul class="space-y-2 mb-4">
+            <li><a href="#" class="text-sm text-neutral-800 dark:text-neutral-300 hover:text-purple-600 dark:hover:text-purple-400 transition underline-offset-4 hover:underline">Why We Think in Biases</a></li>
+            <li><a href="#" class="text-sm text-neutral-800 dark:text-neutral-300 hover:text-purple-600 dark:hover:text-purple-400 transition underline-offset-4 hover:underline">The Attention Economy</a></li>
+          </ul>
+          <a href="/thoughts" class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline">View all Thoughts &rarr;</a>
+        </div>
+        <div>
+          <Heading level="h3" class="text-lg font-bold mb-2 text-neutral-900 dark:text-neutral-100">Politics / News</Heading>
+          <Heading level="h4" class="text-xs font-bold uppercase text-neutral-500 mb-3 mt-4">Latest posts</Heading>
+          <ul class="space-y-2 mb-4">
+            <li><a href="#" class="text-sm text-neutral-800 dark:text-neutral-300 hover:text-purple-600 dark:hover:text-purple-400 transition underline-offset-4 hover:underline">Local Politics in NZ</a></li>
+            <li><a href="#" class="text-sm text-neutral-800 dark:text-neutral-300 hover:text-purple-600 dark:hover:text-purple-400 transition underline-offset-4 hover:underline">Digital Rights and Freedom</a></li>
+          </ul>
+          <a href="/politics" class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline">View all Politics &rarr;</a>
+        </div>
+        <div>
+          <Heading level="h3" class="text-lg font-bold mb-2 text-neutral-900 dark:text-neutral-100">Sanatan</Heading>
+          <Heading level="h4" class="text-xs font-bold uppercase text-neutral-500 mb-3 mt-4">Latest posts</Heading>
+          <ul class="space-y-2 mb-4">
+            <li><a href="#" class="text-sm text-neutral-800 dark:text-neutral-300 hover:text-purple-600 dark:hover:text-purple-400 transition underline-offset-4 hover:underline">The Bhagavad Gita in Daily Life</a></li>
+            <li><a href="#" class="text-sm text-neutral-800 dark:text-neutral-300 hover:text-purple-600 dark:hover:text-purple-400 transition underline-offset-4 hover:underline">Hari Krishna in Christchurch</a></li>
+          </ul>
+          <a href="/sanatan" class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline">View all Sanatan &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="container mx-auto px-4 py-20">
+    <div class="flex justify-between items-end mb-8 border-b border-neutral-200 dark:border-neutral-800 pb-4">
+      <div>
+        <Heading level="h2" class="text-2xl font-bold flex items-center gap-2 text-neutral-900 dark:text-neutral-100">
+          <Icon name="lucide:book-open" size="1.5rem" aria-hidden="true" /> Featured Reads
+        </Heading>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Hand-picked articles from across the archive.</p>
+      </div>
+      <a href="/archive" class="text-sm font-medium hover:underline text-neutral-900 dark:text-neutral-100 hidden md:block focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-500 dark:focus:ring-offset-neutral-900 rounded">View all featured &rarr;</a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <article class="group relative flex flex-col focus-within:ring-2 focus-within:ring-green-700 dark:focus-within:ring-green-500 focus-within:ring-offset-4 dark:focus-within:ring-offset-neutral-900 rounded-lg">
+        <div class="overflow-hidden rounded-lg mb-4 aspect-[4/3] bg-neutral-100 dark:bg-neutral-800">
+          <img src="https://images.unsplash.com/photo-1592424001806-0391104e1713?q=80&w=800&auto=format&fit=crop" alt="Raised garden beds" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+        </div>
+        <div>
+          <span class="text-xs font-bold text-green-700 dark:text-green-400 bg-green-100 dark:bg-green-900/30 px-2 py-1 rounded">Gardening</span>
+          <Heading level="h3" class="font-bold text-lg mt-2 mb-1 text-neutral-900 dark:text-neutral-100 group-hover:text-green-700 dark:group-hover:text-green-400 transition">
+            <a href="#" class="focus:outline-none before:absolute before:inset-0">What to Plant in Autumn in Aotearoa</a>
+          </Heading>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2 line-clamp-2">A seasonal guide to planting for abundance and preparing your soil.</p>
+          <div class="text-xs text-neutral-500">May 12, 2026 • 8 min read</div>
+        </div>
+      </article>
+
+      <article class="group relative flex flex-col focus-within:ring-2 focus-within:ring-blue-600 dark:focus-within:ring-blue-400 focus-within:ring-offset-4 dark:focus-within:ring-offset-neutral-900 rounded-lg">
+        <div class="overflow-hidden rounded-lg mb-4 aspect-[4/3] bg-neutral-100 dark:bg-neutral-800">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop" alt="Server rack lights" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+        </div>
+        <div>
+          <span class="text-xs font-bold text-blue-700 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 px-2 py-1 rounded">Tech</span>
+          <Heading level="h3" class="font-bold text-lg mt-2 mb-1 text-neutral-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">
+            <a href="#" class="focus:outline-none before:absolute before:inset-0">Setting up a HomeLab on a Budget</a>
+          </Heading>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2 line-clamp-2">Build your own self-hosted infrastructure with mini PCs and Docker.</p>
+          <div class="text-xs text-neutral-500">May 10, 2026 • 10 min read</div>
+        </div>
+      </article>
+      
+      </div>
+  </section>
+
+  <section class="container mx-auto px-4 pb-20">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <div class="lg:col-span-2 bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-8 flex flex-col md:flex-row items-center gap-8 border border-neutral-200 dark:border-neutral-800">
+        <div class="w-16 h-16 bg-white dark:bg-neutral-800 rounded-full flex items-center justify-center text-green-700 dark:text-green-500 shadow-sm shrink-0" aria-hidden="true">
+          <Icon name="lucide:mail" size="2rem" />
+        </div>
+        <div class="flex-grow w-full">
+          <Heading level="h2" class="text-xl font-bold mb-1 text-neutral-900 dark:text-neutral-100">Stay in the loop</Heading>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">Get new posts and updates straight to your inbox.</p>
+          <form class="flex flex-col sm:flex-row gap-2 w-full max-w-md" action="#" method="POST">
+            <label for="email-address" class="sr-only">Email address</label>
+            <input 
+              id="email-address" 
+              name="email" 
+              type="email" 
+              autocomplete="email" 
+              required 
+              placeholder="Your email address" 
+              class="flex-grow px-4 py-2 rounded-md border border-neutral-300 dark:border-neutral-700 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-green-700 dark:focus:ring-green-500" 
+            />
+            <button type="submit" class="px-6 py-2 bg-green-700 text-white rounded-md font-medium hover:bg-green-800 transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 dark:focus:ring-offset-neutral-900">Subscribe</button>
+          </form>
+          <p class="text-xs text-neutral-500 mt-2">No spam. Unsubscribe anytime.</p>
+        </div>
+      </div>
+
+      <div class="bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-8 border border-neutral-200 dark:border-neutral-800 flex flex-col justify-center">
+        <Heading level="h2" class="text-lg font-bold mb-2 text-neutral-900 dark:text-neutral-100">About The Archive</Heading>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
+          A personal knowledge base and blog about sustainable living, open-source tech, community, and the mind. Based in Christchurch, NZ.
+        </p>
+        <a href="/about" class="text-sm font-medium text-neutral-900 dark:text-neutral-100 hover:underline flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-500 dark:focus:ring-offset-neutral-900 rounded w-fit">More about me &rarr;</a>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
